@@ -78,21 +78,4 @@ public class HalfAdder implements Circuit {
                 andGate1.output()[0]
         };
     }
-
-    @Override
-    public String[][] getTruthTable() {
-        String[][] retVal = new String[(int)Math.pow(2, 2) + 1][4];
-        retVal[0] = new String[] {"InputA", "InputB", "S", "C"};
-        HalfAdder halfAdder;
-        for (int a = 0; a <= 1; a++) {
-            for (int b = 0; b <= 1; b++) {
-                halfAdder = new HalfAdder(a, b);
-                retVal[1 + ((2*a) + (1*b))][0] = String.valueOf(a);
-                retVal[1 + ((2*a) + (1*b))][1] = String.valueOf(b);
-                retVal[1 + ((2*a) + (1*b))][2] = String.valueOf(halfAdder.s());
-                retVal[1 + ((2*a) + (1*b))][3] = String.valueOf(halfAdder.c());
-            }
-        }
-        return retVal;
-    }
 }

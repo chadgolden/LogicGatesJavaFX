@@ -95,25 +95,4 @@ public class FullAdder implements Circuit {
                 orGate.output()[0]
         };
     }
-
-    @Override
-    public String[][] getTruthTable() {
-        String[][] retVal = new String[(int)Math.pow(2, 3) + 1][5];
-        retVal[0] = new String[] {"InputA", "InputB", "InputC", "S", "T"};
-        FullAdder fullAdder;
-        for (int a = 0; a <= 1; a++) {
-            for (int b = 0; b <= 1; b++) {
-                for (int c = 0; c <= 1; c++) {
-                    fullAdder = new FullAdder(a, b, c);
-                    retVal[1 + ((4*a) + (2*b) + (1*c))][0] = String.valueOf(a);
-                    retVal[1 + ((4*a) + (2*b) + (1*c))][1] = String.valueOf(b);
-                    retVal[1 + ((4*a) + (2*b) + (1*c))][2] = String.valueOf(c);
-                    retVal[1 + ((4*a) + (2*b) + (1*c))][3] = String.valueOf(fullAdder.s());
-                    retVal[1 + ((4*a) + (2*b) + (1*c))][4] = String.valueOf(fullAdder.t());
-
-                }
-            }
-        }
-        return retVal;
-    }
 }
